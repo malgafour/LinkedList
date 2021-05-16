@@ -80,6 +80,40 @@ namespace LinkedList
 
             }
         }
+
+        public void Remove(int value)
+        {
+            if (Head == null)
+            {
+                System.Console.WriteLine("List Empty");
+            }
+            if (Head.Data == value)
+            {
+                Head = Head.Next;
+                return;
+            }
+            Node Previos = Head;
+            Node Current = Head.Next;
+            while (Current != null)
+            {
+                if (Current.Data == value)
+                {
+                    Previos.Next = Current.Next;
+                    if (Previos.Next == null)
+                    {
+                        Tail = Previos;
+                    }
+                    return;
+                }
+                Previos = Previos.Next;
+                Current = Current.Next;
+
+            }
+            if (Current == null)
+            {
+                System.Console.WriteLine("Not founded");
+            }
+        }
     }
 
 
@@ -126,7 +160,9 @@ namespace LinkedList
             l.AddInFirst(5);
             l.AddInFirst(10);
             l.AddInEnd(15);
-            l.Search(5);
+            l.Search(10);
+            l.Remove(100);
+            l.AddInEnd(30);
             l.Display();
         }
     }
