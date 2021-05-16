@@ -133,6 +133,19 @@ namespace LinkedList
             currnt.Next = New;
 
         }
+
+        public int Count()
+        {
+            int count = 0;
+            Node current = Head;
+            while (current != null)
+            {
+                current = current.Next;
+                count++;
+            }
+            System.Console.WriteLine($"Count = {count}");
+            return count;
+        }
     }
 
 
@@ -183,6 +196,8 @@ namespace LinkedList
             l.Remove(100);
             l.AddInEnd(30);
             l.Insert(40, 1);
+            int x = l.Count();
+            // System.Console.WriteLine($"coutn = {x}");
             l.Display();
         }
     }
