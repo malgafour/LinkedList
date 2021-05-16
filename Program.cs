@@ -59,6 +59,27 @@ namespace LinkedList
                 }
             }
         }
+
+        public void Search(int value)
+        {
+            Node current = Head;
+            int pos = 1;
+            while (current != null)
+            {
+                if (current.Data == value)
+                {
+                    System.Console.WriteLine($"item {value} founded in position {pos}");
+                    return;
+                }
+                current = current.Next;
+                pos++;
+                if (current == null)
+                {
+                    System.Console.WriteLine("not founded !");
+                }
+
+            }
+        }
     }
 
 
@@ -82,7 +103,7 @@ namespace LinkedList
         public Node(int valuee)
         {
             this.data = valuee;
-            next = null; //
+            next = null;
         }
     }
 
@@ -105,6 +126,7 @@ namespace LinkedList
             l.AddInFirst(5);
             l.AddInFirst(10);
             l.AddInEnd(15);
+            l.Search(5);
             l.Display();
         }
     }
