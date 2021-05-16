@@ -114,6 +114,25 @@ namespace LinkedList
                 System.Console.WriteLine("Not founded");
             }
         }
+
+        public void Insert(int value, int position)
+        {
+            Node currnt = Head;
+            for (int i = 0; i < position; i++)
+            {
+                currnt = currnt.Next;
+                if (currnt == null)
+                {
+                    System.Console.WriteLine("Out of range");
+                    return;
+                }
+            }
+
+            Node New = new Node(value);
+            New.Next = currnt.Next;
+            currnt.Next = New;
+
+        }
     }
 
 
@@ -158,11 +177,12 @@ namespace LinkedList
 
             List l = new List();
             l.AddInFirst(5);
-            l.AddInFirst(10);
+            // l.AddInFirst(10);
             l.AddInEnd(15);
             l.Search(10);
             l.Remove(100);
             l.AddInEnd(30);
+            l.Insert(40, 1);
             l.Display();
         }
     }
